@@ -5,7 +5,7 @@ const crypto = require('crypto');
 
 const PORT = Number(process.env.PORT || 3000);
 const ROOT = __dirname;
-const DATA_DIR = process.env.RAILWAY_VOLUME_MOUNT_PATH || process.env.DATA_DIR || path.join(ROOT, 'data');
+const DATA_DIR = process.env.RAILWAY_VOLUME_MOUNT_PATH || process.env.DATA_DIR || (fs.existsSync('/data') ? '/data' : path.join(ROOT, 'data'));
 const DATA_FILE = path.join(DATA_DIR, 'requests.json');
 
 // Railway змінні можуть перевизначити ці значення без редагування коду.
