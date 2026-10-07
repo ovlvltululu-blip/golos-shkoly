@@ -12,18 +12,13 @@ npm start
 
 Після запуску відкрий `http://localhost:3000`.
 
-Демо-доступ адміністрації:
-
-- логін: `ADMIN`
-- пароль: `ojkasodak123aksd77o!Kiala`
-
-Для продакшену ці значення можна перевизначити змінними `ADMIN_LOGIN` та `ADMIN_PASSWORD` у Railway.
+Облікові дані адміністрації задаються змінними `ADMIN_LOGIN` та `ADMIN_PASSWORD` у Railway.
 
 ## Railway
 
 1. Створи новий сервіс із цього GitHub-репозиторію. Railway сам визначить `package.json` та запустить `npm start`.
 2. Додай **Volume** у налаштуваннях сервісу та змонтуй його в `/data`.
-3. За бажанням додай змінні `ADMIN_LOGIN` і `ADMIN_PASSWORD`. Якщо їх не додати, працюють демо-значення з `server.js`.
+3. Додай змінні `ADMIN_LOGIN` і `ADMIN_PASSWORD` у налаштуваннях сервісу.
 4. Після деплою перевір `/api/health` — відповідь має містити `ok: true`.
 
 У production заявки записуються у `/data/requests.json`, тому вони переживають перезапуск і нові деплої. Без Volume Railway використовує тимчасову файлову систему, і дані можуть зникнути після redeploy.

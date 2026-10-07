@@ -9,16 +9,11 @@ const DATA_DIR = process.env.RAILWAY_VOLUME_MOUNT_PATH || process.env.DATA_DIR |
 const DATA_FILE = path.join(DATA_DIR, 'requests.json');
 
 // Railway змінні можуть перевизначити ці значення без редагування коду.
-// Демо-логін також залишено як fallback для швидкого першого запуску.
 const ADMIN_LOGIN = process.env.ADMIN_LOGIN || 'ADMIN';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'ojkasodak123aksd77o!Kiala';
 const sessions = new Map();
 
-const seedRequests = [
-  { id: 'GS-2401', firstName: 'Софія', lastName: 'Мельник', title: 'Тиждень учнівських клубів', category: 'events', detail: 'Хочу запропонувати зробити один тиждень, коли кожен клуб зможе розповісти про себе та запросити нових учасників. Так буде простіше знайти однодумців.', status: 'review', note: '', createdAt: '2026-10-06T09:30:00.000Z' },
-  { id: 'GS-2398', firstName: 'Артем', lastName: 'Коваль', title: 'Більше місць для тихої роботи', category: 'space', detail: 'Було б добре облаштувати кілька тихих місць у бібліотеці або коридорі для підготовки до контрольних між уроками.', status: 'new', note: '', createdAt: '2026-10-05T12:15:00.000Z' },
-  { id: 'GS-2384', firstName: 'Марія', lastName: 'Бондар', title: 'День без одноразового пластику', category: 'wellbeing', detail: 'Пропоную провести тематичний день і разом придумати, як зменшити кількість одноразових стаканчиків у школі.', status: 'approved', note: 'Ідею беремо в план на наступний місяць.', createdAt: '2026-10-02T08:00:00.000Z' }
-];
+const seedRequests = [];
 
 function ensureDataFile() {
   fs.mkdirSync(DATA_DIR, { recursive: true });

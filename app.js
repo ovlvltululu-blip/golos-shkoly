@@ -52,11 +52,7 @@ function getRequests() {
     const saved = JSON.parse(localStorage.getItem(REQUESTS_KEY));
     if (Array.isArray(saved)) return saved;
   } catch (_) {}
-  const seed = [
-    { id: 'GS-2401', firstName: 'Софія', lastName: 'Мельник', title: 'Тиждень учнівських клубів', category: 'events', detail: 'Хочу запропонувати зробити один тиждень, коли кожен клуб зможе розповісти про себе та запросити нових учасників. Так буде простіше знайти однодумців.', status: 'review', note: '', createdAt: '2026-10-06T09:30:00.000Z' },
-    { id: 'GS-2398', firstName: 'Артем', lastName: 'Коваль', title: 'Більше місць для тихої роботи', category: 'space', detail: 'Було б добре облаштувати кілька тихих місць у бібліотеці або коридорі для підготовки до контрольних між уроками.', status: 'new', note: '', createdAt: '2026-10-05T12:15:00.000Z' },
-    { id: 'GS-2384', firstName: 'Марія', lastName: 'Бондар', title: 'День без одноразового пластику', category: 'wellbeing', detail: 'Пропоную провести тематичний день і разом придумати, як зменшити кількість одноразових стаканчиків у школі.', status: 'approved', note: 'Ідею беремо в план на наступний місяць.', createdAt: '2026-10-02T08:00:00.000Z' }
-  ];
+  const seed = [];
   localStorage.setItem(REQUESTS_KEY, JSON.stringify(seed));
   return seed;
 }
@@ -124,7 +120,7 @@ function renderSuccess(id) {
 }
 
 function renderLogin() {
-  app.innerHTML = `<div class="login-shell"><aside class="login-aside"><a class="brand" href="#home"><span class="brand-mark"><span>↗</span></span>Голос школи</a><div class="login-message"><span class="eyebrow">Панель команди</span><h1>Ідеї, які не губляться.</h1><p>Переглядай звернення учнів, залишай внутрішні нотатки та відмічай прогрес кожної пропозиції.</p></div><footer>Адміністративний доступ · демо-версія</footer></aside><main class="login-panel"><div class="login-box"><a href="#home" class="back-link">${icons.arrowLeft} Повернутися до форми</a><h2>Вхід для адміністрації</h2><p>Увійди, щоб переглянути та опрацювати ідеї учнів.</p><div id="login-error" class="login-error">Невірний логін або пароль. Спробуй ще раз.</div><form class="login-form" id="login-form"><div class="field"><label for="login">Логін</label><input id="login" name="login" autocomplete="username" placeholder="Введи логін" required /></div><div class="field"><label for="password">Пароль</label><input id="password" type="password" name="password" autocomplete="current-password" placeholder="Введи пароль" required /></div><button class="primary-btn" type="submit">Увійти в панель ${icons.arrow}</button></form><p class="demo-hint">Демо-доступ: <code>ADMIN</code> · <code>ojkasodak123aksd77o!Kiala</code></p></div></main></div>`;
+  app.innerHTML = `<div class="login-shell"><aside class="login-aside"><a class="brand" href="#home"><span class="brand-mark"><span>↗</span></span>Голос школи</a><div class="login-message"><span class="eyebrow">Панель команди</span><h1>Ідеї, які не губляться.</h1><p>Переглядай звернення учнів, залишай внутрішні нотатки та відмічай прогрес кожної пропозиції.</p></div><footer>Адміністративний доступ</footer></aside><main class="login-panel"><div class="login-box"><a href="#home" class="back-link">${icons.arrowLeft} Повернутися до форми</a><h2>Вхід для адміністрації</h2><p>Увійди, щоб переглянути та опрацювати ідеї учнів.</p><div id="login-error" class="login-error">Невірний логін або пароль. Спробуй ще раз.</div><form class="login-form" id="login-form"><div class="field"><label for="login">Логін</label><input id="login" name="login" autocomplete="username" placeholder="Введи логін" required /></div><div class="field"><label for="password">Пароль</label><input id="password" type="password" name="password" autocomplete="current-password" placeholder="Введи пароль" required /></div><button class="primary-btn" type="submit">Увійти в панель ${icons.arrow}</button></form></div></main></div>`;
   document.getElementById('login-form').addEventListener('submit', async event => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.target).entries());
