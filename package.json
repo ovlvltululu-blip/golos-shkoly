@@ -1,0 +1,14 @@
+{
+  "name": "school-voice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Голос школи — прийом ідей учнів з панеллю адміністрації",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
